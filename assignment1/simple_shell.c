@@ -43,6 +43,19 @@ void getWorkingDirectory() {
 }
 
 
+//command pushes the stearm of characters in the file
+
+void pushCommand(char* com) {
+   fp = fopen("past_commands.txt", "a");
+   int i = 0;
+   while(com[i] != '\0') {
+      putc(com[i], fp);
+      i++;
+   }
+   fclose(fp);
+}
+
+
 //function to get command and its options
 
 void getCommand() {
@@ -143,19 +156,6 @@ void history() {
    fp = fopen("past_commands.txt", "r");
    while((ch = getc(fp)) != EOF) {
       printf("%c", ch);
-   }
-   fclose(fp);
-}
-
-
-//command pushes the stearm of characters in the file
-
-void pushCommand(char* com) {
-   fp = fopen("past_commands.txt", "a");
-   int i = 0;
-   while(com[i] != '\0') {
-      putc(com[i], fp);
-      i++;
    }
    fclose(fp);
 }
