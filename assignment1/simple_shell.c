@@ -69,12 +69,13 @@ void getCommand() {
    int j = 0;
    int start = 0;
 
+   command[0] = '\0';
 
    while(buffer[i] != '\0') {
 
       char c = buffer[i];
 
-      if(c != ' ' && !start) {
+      if(c != ' ' && c != '\n' && !start) {
          start = 1;
          if(k == -1) {
             command[j] = c;
@@ -107,7 +108,7 @@ void getCommand() {
 
    //storing the commands in the file to remember them
 
-   pushCommand(buffer);
+   if(strlen(command) != 0) pushCommand(buffer);
 
    free(buffer);
 }
@@ -163,6 +164,8 @@ void pushCommand(char* com) {
 //executes the pseudo shell commands
 
 void executeCommand() {
+
+   if(strlen(command) == 0) return;
 
    if(strcmp(command, "clear") == 0) {
 
