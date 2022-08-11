@@ -28,10 +28,32 @@ char command[20] = "true";
 char* options[32];
 FILE *fp;
 char ch;
+int command_number = 1;
 
 
 //declaring the command functions which will be called 
 
+char* toString(int k) {
+   char* r = (char *) malloc(4*sizeof(char));
+
+   for(int i = 0; i<4; i++) r[i] = ' ';
+
+   int i = 0;
+   while(k!=0) {
+      r[i] = (k%10)+'0';
+      k/=10;
+      i++;
+   }
+
+   char* s = (char *) malloc(4*sizeof(char));
+
+   for(int i = 0; i<4; i++) {
+      s[i] = r[4-i-1];
+   }
+
+   free(r);
+   return s;
+}
 
 //to the current working directory
 
@@ -47,11 +69,19 @@ void getWorkingDirectory() {
 
 void pushCommand(char* com) {
    fp = fopen("past_commands.txt", "a");
+
+   //printing the offset
+   char* command_num_str = toString(command_number);
+   for(int i = 0; i<4; i++) putc(command_num_str[i], fp);
+   putc(' ', fp);
+   putc(' ', fp);
+
    int i = 0;
    while(com[i] != '\0') {
       putc(com[i], fp);
       i++;
    }
+   command_number++;
    fclose(fp);
 }
 

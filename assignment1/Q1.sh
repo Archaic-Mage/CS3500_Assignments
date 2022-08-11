@@ -2,4 +2,4 @@
 
 # Author: Soham Tripathy
 
-ls -l $PWD
+ls -l $1
