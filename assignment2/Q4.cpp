@@ -43,9 +43,12 @@ void* find_multiples(void* arg) {
 
     Array* arr = (Array *) arg;
 
-    for(auto i = arr->s; i <= arr->e; i++) {
+    for(auto i = arr->s; i < arr->e; i++) {
         long long ele = *i;
-        if(ele%element == 0) cnt++;
+        // cout << pthread_self() << " " << ele << endl;
+        if(ele%element == 0) {
+            cnt++;
+        }
     }
 
     return (void*) NULL;
@@ -58,15 +61,25 @@ void* merge(void* arg) {
 
     long long k = 0, i = 0, j = a_siz/2+1;
 
-    while(k < a_siz) {
-        if(j == a_siz || a[i] < a[j]) {
+    while((j < a_siz) && (i < a_siz/2 + 1)) {
+        if(a[i] < a[j]) {
             x[k] = a[i];
             i++, k++;
-        } else if(i == a_siz/2+1 || a[i] >= a[j]) {
+        } else if(a[i] >= a[j]) {
             x[k] = a[j];
             j++, k++;
         }
     }
+
+    while(j < a_siz) {
+        x[k] = a[j];
+        j++, k++;
+    }
+
+    while(i < a_siz/2+1) {
+        x[k] = a[i];
+        i++, k++;
+    }    
 
     for(i = 0; i<a_siz; i++) {
         a[i] = x[i];
@@ -137,19 +150,24 @@ int main() {
     check(pthread_create(&ptids[0], &attr, merge, (void*) NULL));
     check(pthread_join(ptids[0], NULL));
 
+    //debug
+    // for(int i = 0; i<a_siz; i++) {
+    //     cout << a[i] << " ";
+    // }
+    // cout << endl;
 
     //creating N threads to search and count multiples of element
     for(int i = 0; i< N; i++) {
-        Array arr;
+        Array* arr = new Array;
         if(i == N-1) {
-            arr.s = a + i*(a_siz/N);
-            arr.e = a + a_siz;
+            arr->s = a + i*(a_siz/N);
+            arr->e = a + a_siz;
         } else {
-            arr.s = a + i*(a_siz/N);
-            arr.e = a + (i+1)*(a_siz/N);
+            arr->s = a + i*(a_siz/N);
+            arr->e = a + (i+1)*(a_siz/N);
         }
         check(pthread_attr_init(&attr));
-        check(pthread_create(&ptids[i], &attr, find_multiples, &arr));
+        check(pthread_create(&ptids[i], &attr, find_multiples, arr));
     }
 
 
