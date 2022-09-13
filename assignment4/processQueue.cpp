@@ -1,11 +1,20 @@
 #include "processQueue.h"
 
+/* 
 
+    Author: Soham Tripathy
+    CS3500: Assignment 4
+    topic: CPU scheduling algorithm
+
+*/
+
+//setting the queue type and round robin time quantum
 Process_Queue::Process_Queue(int time, int type) {
     this->robinTimeSlice = time;
     this->queue_type = type;
 }
 
+// setting the number for prioritizing
 void Process_Queue::setProcessScheduleNum(Process& a) {
     switch(queue_type) {
         case 1: 
@@ -27,12 +36,14 @@ void Process_Queue::setProcessScheduleNum(Process& a) {
     }
 }
 
+//adds the process in the queue for allocating its schedule num and brust_complete
 void Process_Queue::addProcess(Process a) {
     setProcessScheduleNum(a);
     a.brust_complete = a.brust_time;
     processes.push(a);
 }
 
+//executes the processes for the round robin time slice alloted
 vector<Process> Process_Queue::executeProcess(int &from_time) {
     int available_time = robinTimeSlice;
     vector<Process> processes_executed;

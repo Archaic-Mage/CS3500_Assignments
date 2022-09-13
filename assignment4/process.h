@@ -30,7 +30,11 @@ public:
     int brust_time;
     int process_type;
     int priority;
+
+    //indicates how much time remaining to complete its execution
     int brust_complete;
+
+    // The number according to which the queues prioritizes the processes
     int schedule_num;
 
     //sets completions time to -1 indicating the process is not completed

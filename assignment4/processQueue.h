@@ -3,10 +3,19 @@
 
 #include "process.h"
 
+/* 
+
+    Author: Soham Tripathy
+    CS3500: Assignment 4
+    topic: CPU scheduling algorithm
+
+*/
+
 class Compare {
 
 public:
 
+    //comparator operator according to which the processes get prioritzed
     bool operator() (Process p1, Process p2) {
         if(p1.schedule_num == p2.schedule_num) {
             return p1.id > p2.id;
