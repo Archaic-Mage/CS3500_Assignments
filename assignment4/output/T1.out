@@ -1,0 +1,143 @@
+p1
+AT: 0
+BT: 3
+CT: 3
+TAT: 3
+WT: 0
+
+p2
+AT: 0
+BT: 2
+CT: 5
+TAT: 5
+WT: 3
+
+p3
+AT: 0
+BT: 2
+CT: 8
+TAT: 8
+WT: 6
+
+p4
+AT: 0
+BT: 3
+CT: 37
+TAT: 37
+WT: 34
+
+p5
+AT: 0
+BT: 1
+CT: 13
+TAT: 13
+WT: 12
+
+p6
+AT: 1
+BT: 2
+CT: 22
+TAT: 21
+WT: 19
+
+p7
+AT: 2
+BT: 4
+CT: 31
+TAT: 29
+WT: 25
+
+p8
+AT: 2
+BT: 3
+CT: 20
+TAT: 18
+WT: 15
+
+p9
+AT: 3
+BT: 2
+CT: 11
+TAT: 8
+WT: 6
+
+p10
+AT: 3
+BT: 3
+CT: 30
+TAT: 27
+WT: 24
+
+p11
+AT: 3
+BT: 2
+CT: 24
+TAT: 21
+WT: 19
+
+p12
+AT: 4
+BT: 3
+CT: 45
+TAT: 41
+WT: 38
+
+p13
+AT: 4
+BT: 2
+CT: 33
+TAT: 29
+WT: 27
+
+p14
+AT: 5
+BT: 3
+CT: 35
+TAT: 30
+WT: 27
+
+p15
+AT: 6
+BT: 5
+CT: 52
+TAT: 46
+WT: 41
+
+p16
+AT: 6
+BT: 3
+CT: 49
+TAT: 43
+WT: 40
+
+p17
+AT: 6
+BT: 2
+CT: 25
+TAT: 19
+WT: 17
+
+p18
+AT: 7
+BT: 5
+CT: 51
+TAT: 44
+WT: 39
+
+p19
+AT: 9
+BT: 2
+CT: 54
+TAT: 45
+WT: 43
+
+p20
+AT: 10
+BT: 2
+CT: 15
+TAT: 5
+WT: 3
+
+p1 p2 p8 p3 p6 p9 p17 p5 p20 p7 
+p8 p14 p6 p11 p17 p4 p10 p7 p13 p14 
+p15 p4 p16 p18 p12 p15 p16 p18 p15 p19 
