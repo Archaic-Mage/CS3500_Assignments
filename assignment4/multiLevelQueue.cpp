@@ -30,6 +30,17 @@ int getQueueTypeCode(string process_type) {
     return -1;
 }
 
+bool areAllQueueEmpty(vector<Process_Queue> Queues) {
+
+    for(Process_Queue process_queue: Queues) {
+        if(process_queue.getQueueSize()) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 int main() {
 
     int robinTimeSlice;
@@ -96,9 +107,17 @@ int main() {
             Queues[waiting_queue[0].process_type-1].addProcess(waiting_queue[0]);
             waiting_queue.erase(waiting_queue.begin());
         }
+
+        int init_time = time;
         
         //executes the processes
         vector<Process> executed_processes = Queues[i].executeProcess(time);
+
+        if(time == init_time && areAllQueueEmpty(Queues)) {
+            // CPU gap - When no process is available - it should reset
+            time = waiting_queue[0].arrival_time;
+            i=-1;           //resets CPU
+        }
 
         //storing the execution sequence and completion data
         for(Process process: executed_processes) {

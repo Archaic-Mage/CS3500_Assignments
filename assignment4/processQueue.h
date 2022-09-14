@@ -32,6 +32,10 @@ class Process_Queue {
 
 public:
 
+    int getQueueSize() {
+        return processes.size();
+    }
+
     void addProcess(Process);
 
     void setProcessScheduleNum(Process&);
