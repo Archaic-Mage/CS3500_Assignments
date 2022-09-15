@@ -52,10 +52,7 @@ int main() {
     unordered_map<int, Process> process_complete;
 
     //execution sequence
-    vector<int> process_exe_sequence;
-
-    //waiting queue of process -> goes to ready queue
-    vector<Process> waiting_queue; 
+    vector<int> process_exe_sequence; 
 
     //setting the queues
     vector<Process_Queue> Queues;
@@ -90,7 +87,7 @@ int main() {
 
         cin >> curr_process.priority;                           //priority
 
-        waiting_queue.push_back(curr_process);
+        Queues[curr_process.process_type-1].addWaitingList(curr_process);
     }
 
     print("Done taking in input");
@@ -102,20 +99,23 @@ int main() {
 
     while(process_complete.size() != numberOfProcesses) {
 
-        //transfer from waiting to ready queue
-        while(waiting_queue.size() != 0 && waiting_queue[0].arrival_time <= time) {
-            Queues[waiting_queue[0].process_type-1].addProcess(waiting_queue[0]);
-            waiting_queue.erase(waiting_queue.begin());
-        }
-
         int init_time = time;
+
+        for(int j = 0; j<5; j++) {
+            while(Queues[j].waiting_processes.size() != 0 && Queues[j].waiting_processes[0].arrival_time <= time) {
+                Queues[j].addProcess(Queues[j].waiting_processes[0]);
+                Queues[j].waiting_processes.erase(Queues[j].waiting_processes.begin());
+                print("added for process for time");
+            }
+        }
         
         //executes the processes
         vector<Process> executed_processes = Queues[i].executeProcess(time);
 
         if(time == init_time && areAllQueueEmpty(Queues)) {
+            print("CPU gap");
             // CPU gap - When no process is available - it should reset
-            time = waiting_queue[0].arrival_time;
+            time++;
             i=-1;           //resets CPU
         }
 

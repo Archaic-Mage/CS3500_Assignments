@@ -1,0 +1,37 @@
+p1
+AT: 0
+BT: 3
+CT: 13
+TAT: 13
+WT: 10
+
+p2
+AT: 1
+BT: 2
+CT: 8
+TAT: 7
+WT: 5
+
+p3
+AT: 2
+BT: 2
+CT: 7
+TAT: 5
+WT: 3
+
+p4
+AT: 3
+BT: 4
+CT: 10
+TAT: 7
+WT: 3
+
+p5
+AT: 4
+BT: 3
+CT: 14
+TAT: 10
+WT: 7
+
+p1 p2 p3 p4 p3 p2 p1 p4 p5 p1 
+p5 

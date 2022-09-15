@@ -32,11 +32,17 @@ class Process_Queue {
 
 public:
 
+    vector<Process> waiting_processes;
+
     int getQueueSize() {
         return processes.size();
     }
 
     void addProcess(Process);
+
+    void addWaitingList(Process);
+
+    bool checkProcessAddPreempt(int , Process );
 
     void setProcessScheduleNum(Process&);
 

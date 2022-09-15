@@ -27,10 +27,10 @@ void Process_Queue::setProcessScheduleNum(Process& a) {
             a.schedule_num = a.id;
             break;
         case 4:
-            a.schedule_num = a.brust_time;
+            a.schedule_num = a.brust_complete;
             break;
         case 5:
-            a.schedule_num = a.brust_time;
+            a.schedule_num = a.brust_complete;
         default:
             break;
     }
@@ -38,9 +38,36 @@ void Process_Queue::setProcessScheduleNum(Process& a) {
 
 //adds the process in the queue for allocating its schedule num and brust_complete
 void Process_Queue::addProcess(Process a) {
-    setProcessScheduleNum(a);
     a.brust_complete = a.brust_time;
+    setProcessScheduleNum(a);
     processes.push(a);
+}
+
+void Process_Queue::addWaitingList(Process a) {
+    waiting_processes.push_back(a);
+}
+
+bool Process_Queue::checkProcessAddPreempt(int from_time, Process curr) {
+    if(waiting_processes.size() == 0) {
+        processes.push(curr);
+        return false;
+    }
+    else {
+        while(waiting_processes.size() != 0 && waiting_processes[0].arrival_time <= from_time) {
+            addProcess(waiting_processes[0]);
+            waiting_processes.erase(waiting_processes.begin());
+        }
+
+        setProcessScheduleNum(curr);
+        processes.push(curr);
+
+        Process new_top = processes.top();
+
+        if(new_top.id != curr.id) {
+            return true;
+        }
+        else return false;
+    }
 }
 
 //executes the processes for the round robin time slice alloted
@@ -48,27 +75,29 @@ vector<Process> Process_Queue::executeProcess(int &from_time) {
     int available_time = robinTimeSlice;
     vector<Process> processes_executed;
 
-    while(!processes.empty()) {
+    while(!processes.empty() && available_time > 0) {
         Process curr = processes.top();
         processes.pop();
 
-        if(available_time >= (curr.brust_complete)) {
-            available_time -= (curr.brust_complete);
-            curr.completion_time = from_time + (robinTimeSlice - available_time);
-            curr.brust_complete = 0;
-            processes_executed.push_back(curr);
+        available_time--;
+        curr.brust_complete--;
+        from_time++;
 
-            if(available_time == 0) break;
-        } else {
-            curr.brust_complete -= available_time;
-            available_time = 0;
-            processes.push(curr);
+        if(curr.brust_complete == 0) {
+            curr.completion_time = from_time;
+            processes_executed.push_back(curr);
+            continue;
+        }
+
+        if(checkProcessAddPreempt(from_time, curr)) {
+            processes_executed.push_back(curr);
+        }
+
+        if(available_time == 0) {
             processes_executed.push_back(curr);
             break;
         }
     }
-    
-    from_time = from_time + (robinTimeSlice-available_time);
 
     return processes_executed;
 }
