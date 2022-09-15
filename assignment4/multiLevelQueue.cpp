@@ -15,6 +15,14 @@ void print(string s) {
     cout.flush();
 }
 
+//for printing
+const char separator    = ' ';
+
+template<typename T> void printElement(T t)
+{
+    cout << left << setw(25) << setfill(separator) << t;
+}
+
 //from the given string it gets the queue types
 int getQueueTypeCode(string process_type) {
     if(process_type == "sys") return 0;
@@ -53,6 +61,8 @@ int main() {
 
     //execution sequence
     vector<int> process_exe_sequence; 
+    vector<int> time_sequence;
+    time_sequence.push_back(0);
 
     //setting the queues
     vector<Process_Queue> Queues;
@@ -108,9 +118,11 @@ int main() {
                 print("added for process for time");
             }
         }
-        
+
+
         //executes the processes
-        vector<Process> executed_processes = Queues[i].executeProcess(time);
+
+        vector<Process> executed_processes = Queues[i].executeProcess(time, time_sequence);
 
         if(time == init_time && areAllQueueEmpty(Queues)) {
             print("CPU gap");
@@ -133,29 +145,39 @@ int main() {
 
     //prints relevant information
 
+    printElement("Process ID");
+    printElement("Arrival Time (A.T)");
+    printElement("Brust Time (B.T)");
+    printElement("Completion Time (C.T)");
+    printElement("Turn-Around Time (T.A.T)");
+    printElement("Wait Time (W.T)");
+    cout << endl;
+
     for(int i = 0; i<numberOfProcesses; i++) {
 
         Process p = process_complete[i+1];
 
         //print process id
-        cout << "p" << p.id << endl;
-        cout << "AT: " << p.arrival_time << endl;
-        cout << "BT: " << p.brust_time << endl;
-        cout << "CT: " << p.completion_time << endl;
-        cout << "TAT: " << p.completion_time - p.arrival_time << endl;
-        cout << "WT: " << p.completion_time - p.arrival_time - p.brust_time << endl;
+        printElement(p.id);
+        printElement(p.arrival_time);
+        printElement(p.brust_time);
+        printElement(p.completion_time);
+        printElement(p.completion_time - p.arrival_time);
+        printElement(p.completion_time - p.arrival_time - p.brust_time);
         cout << endl;
     }
 
-    int k = 0;
+    cout << endl;
 
-    for(int process: process_exe_sequence) {
+    int j = 0;
+
+    cout << "(" <<time_sequence[j] << ") ";
+    j++;
+
+    for(int process: process_exe_sequence) { 
         cout << "p" << process << " ";
-        k++;
-        if(k == 10) {
-            cout << endl;
-            k = 0;
-        }
+        cout << "(" <<time_sequence[j] << ") ";
+        j++;
     }
 
     return 0;

@@ -1,143 +1,23 @@
-p1
-AT: 0
-BT: 3
-CT: 3
-TAT: 3
-WT: 0
+Process ID               Arrival Time (A.T)       Brust Time (B.T)         Completion Time (C.T)    Turn-Around Time (T.A.T) Wait Time (W.T)          
+1                        0                        3                        3                        3                        0                        
+2                        0                        2                        5                        5                        3                        
+3                        0                        2                        8                        8                        6                        
+4                        0                        3                        37                       37                       34                       
+5                        0                        1                        13                       13                       12                       
+6                        1                        2                        22                       21                       19                       
+7                        2                        4                        31                       29                       25                       
+8                        2                        3                        20                       18                       15                       
+9                        3                        2                        11                       8                        6                        
+10                       3                        3                        30                       27                       24                       
+11                       3                        2                        24                       21                       19                       
+12                       4                        3                        45                       41                       38                       
+13                       4                        2                        33                       29                       27                       
+14                       5                        3                        35                       30                       27                       
+15                       6                        5                        52                       46                       41                       
+16                       6                        3                        49                       43                       40                       
+17                       6                        2                        25                       19                       17                       
+18                       7                        5                        51                       44                       39                       
+19                       9                        2                        54                       45                       43                       
+20                       10                       2                        15                       5                        3                        
 
-p2
-AT: 0
-BT: 2
-CT: 5
-TAT: 5
-WT: 3
-
-p3
-AT: 0
-BT: 2
-CT: 8
-TAT: 8
-WT: 6
-
-p4
-AT: 0
-BT: 3
-CT: 37
-TAT: 37
-WT: 34
-
-p5
-AT: 0
-BT: 1
-CT: 13
-TAT: 13
-WT: 12
-
-p6
-AT: 1
-BT: 2
-CT: 22
-TAT: 21
-WT: 19
-
-p7
-AT: 2
-BT: 4
-CT: 31
-TAT: 29
-WT: 25
-
-p8
-AT: 2
-BT: 3
-CT: 20
-TAT: 18
-WT: 15
-
-p9
-AT: 3
-BT: 2
-CT: 11
-TAT: 8
-WT: 6
-
-p10
-AT: 3
-BT: 3
-CT: 30
-TAT: 27
-WT: 24
-
-p11
-AT: 3
-BT: 2
-CT: 24
-TAT: 21
-WT: 19
-
-p12
-AT: 4
-BT: 3
-CT: 45
-TAT: 41
-WT: 38
-
-p13
-AT: 4
-BT: 2
-CT: 33
-TAT: 29
-WT: 27
-
-p14
-AT: 5
-BT: 3
-CT: 35
-TAT: 30
-WT: 27
-
-p15
-AT: 6
-BT: 5
-CT: 52
-TAT: 46
-WT: 41
-
-p16
-AT: 6
-BT: 3
-CT: 49
-TAT: 43
-WT: 40
-
-p17
-AT: 6
-BT: 2
-CT: 25
-TAT: 19
-WT: 17
-
-p18
-AT: 7
-BT: 5
-CT: 51
-TAT: 44
-WT: 39
-
-p19
-AT: 9
-BT: 2
-CT: 54
-TAT: 45
-WT: 43
-
-p20
-AT: 10
-BT: 2
-CT: 15
-TAT: 5
-WT: 3
-
-p1 p2 p8 p3 p6 p9 p17 p5 p20 p7 
-p8 p14 p6 p11 p17 p4 p10 p7 p13 p14 
-p15 p4 p16 p18 p12 p15 p16 p18 p15 p19 
+(0) p1 (3) p2 (5) p8 (6) p3 (8) p6 (9) p9 (11) p17 (12) p5 (13) p20 (15) p7 (18) p8 (20) p14 (21) p6 (22) p11 (24) p17 (25) p4 (27) p10 (30) p7 (31) p13 (33) p14 (35) p15 (36) p4 (37) p16 (39) p18 (42) p12 (45) p15 (48) p16 (49) p18 (51) p15 (52) p19 (54) 

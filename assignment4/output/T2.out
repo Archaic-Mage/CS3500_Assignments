@@ -1,36 +1,8 @@
-p1
-AT: 0
-BT: 3
-CT: 3
-TAT: 3
-WT: 0
+Process ID               Arrival Time (A.T)       Brust Time (B.T)         Completion Time (C.T)    Turn-Around Time (T.A.T) Wait Time (W.T)          
+1                        0                        3                        3                        3                        0                        
+2                        5                        2                        7                        2                        0                        
+3                        5                        3                        10                       5                        2                        
+4                        5                        3                        13                       8                        5                        
+5                        5                        3                        16                       11                       8                        
 
-p2
-AT: 5
-BT: 2
-CT: 7
-TAT: 2
-WT: 0
-
-p3
-AT: 5
-BT: 3
-CT: 10
-TAT: 5
-WT: 2
-
-p4
-AT: 5
-BT: 3
-CT: 13
-TAT: 8
-WT: 5
-
-p5
-AT: 5
-BT: 3
-CT: 16
-TAT: 11
-WT: 8
-
-p1 p2 p3 p4 p5 
+(0) p1 (3) p2 (7) p3 (10) p4 (13) p5 (16) 

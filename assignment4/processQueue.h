@@ -50,7 +50,7 @@ public:
 
     // returns vector of process - executed from time 'from_time' to 'from_time+robinTimeSlice' (if possible)
     // it also changes the time 'from_time' to time it can execute (which can be used later)
-    vector<Process> executeProcess(int &from_time);   
+    vector<Process> executeProcess(int &from_time, vector<int> &);   
     
 };
 

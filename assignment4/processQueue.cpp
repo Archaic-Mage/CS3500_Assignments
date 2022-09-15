@@ -71,7 +71,7 @@ bool Process_Queue::checkProcessAddPreempt(int from_time, Process curr) {
 }
 
 //executes the processes for the round robin time slice alloted
-vector<Process> Process_Queue::executeProcess(int &from_time) {
+vector<Process> Process_Queue::executeProcess(int &from_time, vector<int>& time_sequence) {
     int available_time = robinTimeSlice;
     vector<Process> processes_executed;
 
@@ -86,15 +86,18 @@ vector<Process> Process_Queue::executeProcess(int &from_time) {
         if(curr.brust_complete == 0) {
             curr.completion_time = from_time;
             processes_executed.push_back(curr);
+            time_sequence.push_back(from_time);
             continue;
         }
 
         if(checkProcessAddPreempt(from_time, curr)) {
             processes_executed.push_back(curr);
+            time_sequence.push_back(from_time);
         }
 
         if(available_time == 0) {
             processes_executed.push_back(curr);
+            time_sequence.push_back(from_time);
             break;
         }
     }
