@@ -1,28 +1,33 @@
-# CS3500 Assignment: Memory Usage and Page Faults
+# CS3500 Assignment: Contiguous Memory Allocations
 
-Write a program to implement the transpose of a matrix with tracking of memory usage and page
-faults by the process.
-In your program you will be performing transpose of 5 square matrices of n*n(1000<= n <= 5000)
-dimensions for 10 iterations in 2 different settings. These matrices are allocated dynamically (malloc
-/ calloc) and are filled with random long values. Use Inplace operations for matrix transpose.
+One of the simplest methods for allocating memory is to divide memory into several fixed-sized
+partitions. Each partition may contain exactly one process. Thus, the degree of multiprogramming is
+bound by the number of partitions. In this multiple partition method, when a partition is free, a
+process is selected from the input queue and is loaded into the free partition.
+The first-fit, best-fit, and worst-fit strategies are the ones most commonly used to select a free hole
+from the set of available holes.
 
-Two different settings:
+- **First fit.** Allocate the first hole that is big enough. Searching can start at the beginning of the set of
+holes. We can stop searching as soon as we find a free hole that is large enough. For initial allocation
+start from the beginning of the fixed holes
+- **Best fit.** Allocate the smallest hole that is big enough. We must search the entire list, unless the list
+is ordered by size. This strategy produces the smallest leftover hole.
+- **Worst fit.** Allocate the largest hole. Again, we must search the entire list, unless it is sorted by size.
+This strategy produces the largest leftover hole, which may be more useful than the smaller leftover
+hole from a best-fit approach.
 
-- Memory allocated only once in 10 iterations
-- Memory allocated each time in 10 iterations
-
-Your program must output the memory usage and the number of page faults after each iteration.
+Given details of memory blocks and process sizes, write a program to implement the above three
+strategies to assign processes to memory blocks.
 
 ## Input
 
-Line - 1: Size of matrix
+Line - 1: Number of Blocks
 
-Line - 2: Choice of allocation type
+Line - 2: Block sizes
 
-Choice of allocation:
+Line - 3: Number of Processes
 
-- Memory allocated once: Code = 1
-- Memory allocated in each itertion: Code = 2
+Line - 4: Processes Sizes
 
 ## Running the Program
 
@@ -35,7 +40,7 @@ make
 Run the code using,
 
 ```bash
-./memory_usage
+./memoryAllocator
 ```
 
 Now, enter the test cases individually. After running the tests clean the temp files using the command bellow.
@@ -46,7 +51,17 @@ make clean
 
 ### Given test results
 
-The assignment folder contains some default test cases for n=1000 and memory allocation type 1 and type 2, in folder 'tests' under the name 'T1.tst' and 'T2.tst' respectively. The results of those are there in folder 'results' under the name 'T1.out' and 'T2.out' respectively.
+The assignment folder contains some default test cases for,
+
+Enter Number of Blocks: 5
+
+Enter 5 block sizes: 200 600 300 400 700
+
+Enter Number of Process: 4
+
+Enter 4 Process Sizes: 330 520 210 550,
+
+in folder 'tests' under the name 'T1.tst' respectively. The results of those are there in folder 'results' under the name 'T1.out' respectively.
 
 You can add custom test cases, using the input format specfied in the 'tests' folder with extension '.tst'.
 
