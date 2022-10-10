@@ -1,0 +1,15 @@
+Enter n value: 
+Memory Allocated once: 1
+Memory Allocated each time: 2
+
+Type of Memory Allocation: 
+memory usage: 1620 + 40700, page_faults: 9954
+memory usage: 1620 + 79772, page_faults: 19749
+memory usage: 1620 + 118844, page_faults: 29544
+memory usage: 1620 + 158180, page_faults: 39339
+memory usage: 1620 + 197252, page_faults: 49134
+memory usage: 1620 + 236588, page_faults: 58929
+memory usage: 1620 + 275660, page_faults: 68724
+memory usage: 1620 + 314732, page_faults: 78519
+memory usage: 1620 + 354068, page_faults: 88314
+memory usage: 1620 + 393140, page_faults: 98109

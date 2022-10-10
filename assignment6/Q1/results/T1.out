@@ -1,0 +1,25 @@
+Enter Number of Blocks: Enter 5 block sizes: Enter Number of Processes: Enter 4 Process sizes: 
+FIRST-FIT
+
+Process number      Process size        Block size          Block number        
+1                   330                 600                 2                   
+2                   520                 700                 5                   
+3                   210                 300                 3                   
+4                   550                 NA                  NA                  
+
+BEST-FIT
+
+Process number      Process size        Block size          Block number        
+1                   330                 400                 4                   
+2                   520                 600                 2                   
+3                   210                 300                 3                   
+4                   550                 700                 5                   
+
+WORST-FIT
+
+Process number      Process size        Block size          Block number        
+1                   330                 700                 5                   
+2                   520                 600                 2                   
+3                   210                 400                 4                   
+4                   550                 NA                  NA                  
+
