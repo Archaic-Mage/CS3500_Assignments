@@ -1,0 +1,18 @@
+Enter Sequence Length: Enter Sequence: Page-frame Size: 
+FIFO: 1
+Optimal: 2
+LRU: 3
+
+Enter Page replacement strategy: 
+2 
+2 4 
+2 4 3 
+No page fault
+No page fault
+2 4 5 
+2 6 5 
+No page fault
+No page fault
+2 3 5 
+
+Total number of page faults = 6
