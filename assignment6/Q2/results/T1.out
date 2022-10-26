@@ -3,13 +3,13 @@ Memory Allocated once: 1
 Memory Allocated each time: 2
 
 Type of Memory Allocation: 
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
-memory usage: 1584 + 40784, page_faults: 9954
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
+memory usage: 1940 + 40332, page_faults: 9964
